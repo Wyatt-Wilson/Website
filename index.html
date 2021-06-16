@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="shortcut icon" href="img/WW.png">
     <title>Wyatt Wilson</title>
     <meta charset ='utf-8'>
+    <link rel="stylesheet" href="./css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
-    <h1> Site under construction! </h1>
-    <h2> hello </h2>
+<!--Adding background image-->
+<style>
+  body {
+    background-image: url("https://wallpaperaccess.com/full/3063516.png");
+  }
+</style>
+<!--Transition for text-->
+    <script>
+        $().ready(function () {
+          $("#nameJS").fadeIn(1500, function() {
+            $("#linkBlock").fadeIn(500);
+          });
+        });
+    </script>
+<!--Inserting Instagram image at top right of page (done below)-->
+    <style>
+      #content {
+          position: relative;
+      }
+      #content img {
+          position: absolute;
+          top: 0px;
+          right: 10px;
+      }
+    </style>
+
+  <div id="content">
+    <a href="https://www.instagram.com/wyattwilsson/?hl=en" target="blank">
+      <img src="https://cdn.icon-icons.com/icons2/2248/PNG/512/instagram_icon_138461.png" class="instagram"
+        width="20"
+        height=auto
+        />
+    </a>
+      <div style="font-family:Brush Script MT">Check out my social media!</div>
+  </div>
+    <div class='mainBlock'>
+        <h1 class='name' id='nameJS'>Wyatt Wilson</h1>
+        <div class='linkContainer' id='linkBlock'>
+          <a class ='link' href="./about/index.html">About</a>
+        </div>
+    </div>
   </body>
 </html>
