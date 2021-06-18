@@ -2,9 +2,28 @@
 <html>
   <head>
     <link rel="shortcut icon" href="../img/WW.png">
+    <link rel="stylesheet" href="../css/about.css">
     <title>Wyatt Wilson</title>
     <meta charset ='utf-8'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--Responsive Banner (taken from "https://www.w3schools.com/howto/howto_css_responsive_header.asp")-->
+<!--line below includes logo I made-->
+<div class="header">
+  <div id="logo">
+    <a href="https://www.wyattwilson.dev">
+      <img src="../img/WW.png" class="logo"
+        width="30"
+        height="auto"
+        />
+    </a>
+  </div>
+  <div class="header-right">
+    <a class="active" href="https://www.wyattwilson.dev">Home</a>
+    <a href="../contactMe/index.html">Contact</a>
+    <a href="../about/index.html">About</a>
+  </div>
+</div>
+    
     <style>
         h1 {text-align: center;}
         p {text-align: center;}
@@ -12,21 +31,21 @@
     </style>
   </head>
   <body>
-    <a class ='link' href="../index.html">Home</a>
     <div class='aboutBlock' id='aboutID'>
       <h1 class='aboutTitle' id='aboutTitleID'>About</h1>
       
-      <div class='textBlock'>
+      <div>
         <p class='aboutText' id='aboutTextID'>
           Hi, my name is Wyatt Wilson and I am a student at Duquesne University in Pittsburgh. Much to be added... <br><br>
           Currently I am interested in martial arts, music, and computer science.
         </p>
         <div class="logo-container">
-            <img src="https://i.imgur.com/DEN1oSr.jpeg" alt="Google logo" />
+            <img src="https://i.imgur.com/DEN1oSr.jpeg" alt="Pittsburgh" />
             <figcaption>Fig.1 - Downtown, Pittsburgh, USA.</figcaption>
         </div>
+      </div>
     </div>
-  </div>
+
   </body>
 
 </html>
