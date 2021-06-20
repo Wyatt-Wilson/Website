@@ -52,3 +52,65 @@
       float: none;
     }
   }
+
+/*Image and caption centering, taken from Stack Overflow (https://stackoverflow.com/questions/19138758/how-to-align-caption-underneath-image)*/
+figure {
+    display: inline-block;
+    margin: 40px; /* adjust as needed */
+}
+figure img {
+    vertical-align: top;
+}
+figure figcaption {
+    text-align: center;
+}
+
+.blockBorder
+{
+  border-style:solid;
+  border-color:#000000; 
+}
+
+.inlineBorder
+{
+  border: 1px solid rgb(0, 0, 0); 
+}
+
+.alignLeftInlineBorder
+{
+  border: 2px solid rgb(0, 0, 0);
+  display: block;
+  float: left;
+  background: #f3f3f3;
+}
+
+.alignRightInlineBorder
+{
+  border: 2px solid rgb(0, 0, 0);
+  display: block;
+  float: right;
+  background: #f3f3f3;
+}
+/*below taken from W3SCHOOLS https://www.w3schools.com/howto/howto_css_style_header.asp*/
+.standardHeader {
+  padding: 25px;
+  text-align: center;
+  background: #004E7C;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+}
+
+/*Taken from here https://www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/*/
+.fade {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
