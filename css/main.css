@@ -17,9 +17,9 @@
 
 .linkContainer {
     position:absolute;
-    top: 80%;
+    top: 90%;
     left: 40%;
-    font-size: 200%;
+    font-size: 100%;
     display: none;
     white-space:nowrap;
 }
@@ -167,3 +167,8 @@ body, html {
       float: none;
     }
   }
+
+  .footer{
+    text-align:center;
+    margin-top:50px;
+    }
