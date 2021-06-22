@@ -3,7 +3,7 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .name {
@@ -26,8 +26,10 @@
 
 .linkContainer404 {
     position:absolute;
-    top: 80%;
-    left: 0%;
+    top: 90%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
     font-size: 200%;
     white-space:nowrap;
 }
@@ -172,3 +174,21 @@ body, html {
     text-align:center;
     margin-top:50px;
     }
+
+    /*Taken from here https://www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/*/
+  .fade {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  @keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
