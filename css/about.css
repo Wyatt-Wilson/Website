@@ -56,7 +56,7 @@
 /*Image and caption centering, taken from Stack Overflow (https://stackoverflow.com/questions/19138758/how-to-align-caption-underneath-image)*/
 figure {
     display: inline-block;
-    margin: 40px; /* adjust as needed */
+    margin: 20px; /* adjust as needed */
 }
 figure img {
     vertical-align: top;
@@ -111,7 +111,7 @@ figure figcaption {
 
 /*Taken from here https://www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/*/
 .fade {
-  animation: fadeInAnimation ease 3s;
+  animation: fadeInAnimation ease 4s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -122,4 +122,10 @@ figure figcaption {
   100% {
       opacity: 1;
   }
+}
+
+/*below taken from https://stackoverflow.com/questions/19443013/how-to-center-an-unordered-list*/
+ol {
+  display: table;
+  margin: 0 auto;
 }
