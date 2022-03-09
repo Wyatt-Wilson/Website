@@ -1,48 +1,115 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 /*BELOW WAS TAKEN FROM W3SCHOOLS (https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_responsive_header)*/
 /* Style the header with a grey background and some padding */
 .header {
-    overflow: hidden;
-    background-color: #f1f1f1;
-    padding: 20px 10px;
+  overflow: hidden;
+  background-color: #637992;
+  padding: 5px 10px;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 50px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  padding: 6px;
+  line-height: 5px;
+  font-size: 5px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Style the active/current link*/
+.header a.active {
+  color: black;
+}
+
+/* Float the link section to the right */
+.header-right {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 30px;
+  float: right;
+}
+/* Images - Obtained here https://www.youtube.com/watch?v=r-xe8XJqy7U */  
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  line-height: 180%;
+  color: white;
+  background-color: #323232;
+  text-align: center;
+}
+.img1{
+  background: url(../img/1622840496876.jpg);
+  min-height: 60%;
+}
+.img2{
+  background: url(../img/pittsburgh-skyline-sunset.jpg);
+  min-height: 60%;
+}
+.img3{
+  background: url(../img/Rooney_Field_New_turf_71.jpg);
+  min-height: 100%;
+}
+.img1, .img2, .img3 {
+  position: relative;
+  opacity: .85;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+section{
+  padding: 50px 80px;
+}
+
+.heading{
+  position: absolute;
+  top: 50%;
+  font-size: 400%;
+  text-shadow: 0 0 15px #000;
+  width: 100%;
+  text-transform: uppercase;
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+/*Taken from here https://www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/*/
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
   }
-  
-  /* Style the header links */
-  .header a {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    line-height: 25px;
-    border-radius: 4px;
+  100% {
+      opacity: 1;
   }
-  
-  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-  .header a.logo {
-    font-size: 25px;
-    font-weight: bold;
-  }
-  
-  /* Change the background color on mouse-over */
-  .header a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  /* Style the active/current link*/
-  .header a.active {
-    background-color: dodgerblue;
-    color: white;
-  }
-  
-  /* Float the link section to the right */
-  .header-right {
-    float: right;
-  }
-  
-  /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-  @media screen and (max-width: 500px) {
+}
+  /* Add media queries for responsiveness - when the screen is 768px wide or less, stack the links on top of each other */
+  @media screen and (max-width: 768px) {
+    .heading {
+      font-size: 250%;
+    }
+    h1 {
+      font-size: 105%;
+    }
+    p {
+      font-size: 90%;
+    }
     .header a {
       float: none;
       display: block;
@@ -53,109 +120,14 @@
     }
   }
 
-/*Image and caption centering, taken from Stack Overflow (https://stackoverflow.com/questions/19138758/how-to-align-caption-underneath-image)*/
-figure {
-    display: inline-block;
-    margin: 20px; /* adjust as needed */
-}
-figure img {
-    vertical-align: top;
-}
-figure figcaption {
-    text-align: center;
-}
-
-.blockBorder
-{
-  border-style:solid;
-  border-color:#000000; 
-}
-
-.inlineBorder
-{
-  border: 1px solid rgb(0, 0, 0); 
-}
-
-.alignLeftInlineBorder
-{
-  border: 2px solid rgb(0, 0, 0);
-  display: block;
-  float: left;
-  background: #f3f3f3;
-}
-
-.alignRightInlineBorder
-{
-  border: 2px solid rgb(0, 0, 0);
-  display: block;
-  float: right;
-  background: #f3f3f3;
-}
-
 .alignCenterInlineBorder
 {
+  color: rgb(0, 0, 0);
   border: 2px solid rgb(0, 0, 0);
   display: block;
   margin: 10px;
   float: center;
   background: #f3f3f3;
-}
-/*below taken from W3SCHOOLS https://www.w3schools.com/howto/howto_css_style_header.asp*/
-.standardHeader {
-  padding: 25px;
-  text-align: center;
-  background: #004E7C;
-  color: rgb(255, 255, 255);
-  font-size: 30px;
-}
-
-/*Taken from here https://www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/*/
-.fade {
-  animation: fadeInAnimation ease 1s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-@keyframes fadeInAnimation {
-  0% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-  }
-}
-
-.fadeTwo {
-  animation: fadeInAnimation ease 3s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-@keyframes fadeInAnimation {
-  0% {
-      opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-      opacity: 1;
-  }
-}
-
-.fadeThree {
-  animation: fadeInAnimation ease 7s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-@keyframes fadeInAnimation {
-  0% {
-      opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-      opacity: 1;
-  }
 }
 
 /*below taken from https://stackoverflow.com/questions/19443013/how-to-center-an-unordered-list*/
@@ -164,40 +136,8 @@ ol {
   margin: 0 auto;
 }
 
-/*below taken from https://www.w3schools.com/howto/howto_js_image_grid.asp
-/*attempt to re-align images*/
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
-}
-
-/* Create four equal columns that sits next to each other */
-.column {
-  flex: 25%;
-  max-width: 25%;
-  padding: 0 4px;
-  margin: 0 auto;
-}
-
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%;
-}
-
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-  .column {
-    flex: 50%;
-    max-width: 50%;
-  }
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
+/*Hooray, circular images */
+img.rounded-img {
+  padding-top: 10px;
+  border-radius: 50%;
 }
