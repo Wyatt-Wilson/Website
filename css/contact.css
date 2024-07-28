@@ -2,18 +2,13 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
+body, html {
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
   color: white;
-  background-color: black; /* Changed to black */
-}
-
-html {
-  box-sizing: inherit;
+  background-color: #323232;
 }
 
 .header {
@@ -48,39 +43,18 @@ html {
   float: right;
 }
 
-.center {
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 35%;
-  height: 90%;
-}
-
-.text {
-  display: block;
-  margin-top: 20%;
-  margin-bottom: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  width: 90%;
-}
-
 .column {
-  float: left;
-  width: 33.3%;
-  margin-bottom: 16px;
+  flex: 1;
   padding: 0 8px;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 18px;
+  margin: 18px auto;
   background-color: #444;
   border-radius: 10px;
   padding: 16px;
+  width: 400px; /* increases size of main container */
 }
 
 .container {
@@ -124,7 +98,7 @@ html {
 }
 
 .img1 {
-  background: url(../img/madhatter.jpg) no-repeat center center;
+  background: url(../img/madHatter.jpg) no-repeat center center;
   min-height: 60vh;
   background-size: cover;
   position: relative;
@@ -133,12 +107,29 @@ html {
 
 .content {
   padding: 20px;
-  background-color: black; /* Black background for content */
+  background-color: #323232;
+  overflow: hidden; /* Makes sure content doesn't overflow */
 }
 
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.column:first-child {
+  display: flex;
+  justify-content: center;
+}
+
+.column:nth-child(2) {
+  flex: 2; /* Make the text column take more space */
+}
+
+/* insert footer below*/
 .footer-container {
   background-color: black;
-  padding: 64px 0;
+  padding: 64px 0 64px 0;
 }
 
 .footer {
@@ -160,32 +151,24 @@ html {
   border-radius: 15px;
 }
 
-.footer-heading-margin {
+.footer-heading-first, .footer-heading-second {
   display: flex;
   flex-direction: column;
   margin-right: 64px;
+  line-height: 180%;
 }
 
-.footer-heading {
+.footer-heading-third {
   display: flex;
   flex-direction: column;
+  line-height: 180%;
 }
 
-.footer-heading-margin h2 {
+.footer-heading-first h2, .footer-heading-second h2, .footer-heading-third h2 {
   margin-bottom: 32px;
 }
 
-.footer-heading h2 {
-  margin-bottom: 32px;
-}
-
-.footer-heading-margin a {
-  color: white;
-  text-decoration: none;
-  margin-bottom: 8px;
-}
-
-.footer-heading a {
+.footer-heading-first a, .footer-heading-second a, .footer-heading-third a {
   color: white;
   text-decoration: none;
   margin-bottom: 8px;
@@ -199,51 +182,106 @@ html {
   color: gray;
 }
 
-@keyframes fadeInAnimation {
-  0% {
-      opacity: 0;
-  }
-  50% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-  }
-}
-
 .fade {
   animation: fadeInAnimation ease 3s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
+.link {
+  text-decoration: none;
+  color: rgb(128, 128, 128);
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.footer .fa-instagram {
+  color: #c1558b;
+}
+
+.footer .fa-envelope {
+  color: #ffffff;
+}
+
+.footer .fa-linkedin-square {
+  color: #0077B5;
+}
+
+.footer .fa-github {
+  color: #ffffff;
+}
+
+.footer .fa-twitter {
+  color: #1da1f2;
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .header a {
-      float: none;
-      display: block;
-      text-align: left;
+    float: none;
+    display: block;
+    text-align: left;
   }
 
   .header-right {
-      float: none;
+    float: none;
   }
 
-  .footer-heading, .footer-heading-margin {
-      margin-right: auto;
+  .footer-heading-first, .footer-heading-second {
+    margin-right: 20px;
   }
 
   .column {
-      width: 100%;
-      display: block;
+    width: 100%;
+    display: block;
   }
 
   .heading {
-      font-size: 150%;
+    font-size: 150%;
   }
 
   .text {
-      margin-top: 10%;
-      margin-bottom: 5%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .img1 {
+    background: url(../img/madHatter.jpg) no-repeat right center;
+    min-height: 60vh;
+    background-size: cover;
+    position: relative;
+    opacity: 0.85;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .footer-heading-second {
+    margin-left: 10px;
+    margin-right: 0px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer-heading-first {
+    margin-right: 10px;
+  }
+  .footer-heading-second {
+    margin-right: 0px;
   }
 }
