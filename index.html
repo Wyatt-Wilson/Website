@@ -9,7 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-<!--Responsive Banner (taken from "https://www.w3schools.com/howto/howto_css_responsive_header.asp")-->
   <div class="header">
     <div id="logo">
       <a href="https://www.wyattwilson.dev">
@@ -27,19 +26,11 @@
   </div>
   <div class="hero-image">
     <div class="hero-text">
-        <h1 class='name' id='nameJS'>Wyatt Wilson</h1>
+        <h1 class='name fadeJS1'>Wyatt Wilson</h1>
     </div>
   </div>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!--Transition for text-->
-    <script>
-        $().ready(function () {
-          $("#nameJS").fadeIn(1500, function() {
-            $("#linkBlock").fadeIn(500);
-          });
-        });
-    </script>
   <footer class="footer-container">
     <div class="footer">
       <div class="footer-heading-first">
@@ -60,9 +51,10 @@
         <a href="https://twitter.com/wyattwilsson" target="blank">Twitter <i class="fa fa-twitter"></i></a>
       </div>
     </div>
-    <div class="fade">
+    <div class='fadeJS2'>
       <p class="link"><br><br>Website Created on June 13th, 2021</p>
     </div>
   </footer>
+  <script src="./js/main.js"></script>
 </body>
 </html>

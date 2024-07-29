@@ -96,14 +96,6 @@ color: white;
   border-radius: 50px;
 }
 
-/* Style the logo link (set the same value of line-height and font-size to prevent the header to increase when the font gets bigger) */
-.header a.logo {
-  padding: 6px;
-  line-height: 5px;
-  font-size: 5px;
-  font-weight: bold;
-}
-
 .header a:hover {
   background-color: #ddd;
   color: black;
@@ -169,13 +161,6 @@ color: white;
   margin-bottom: 8px;
 }
 
-  /*Taken from here https://www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/*/
-.fade {
-  animation: fadeInAnimation ease 3s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
 .link {
   text-decoration: none;
   color: rgb(128, 128, 128);
@@ -184,37 +169,11 @@ color: white;
   font-size: 1.00em;
 }
 
-@keyframes fadeInAnimation {
-  0% {
-      opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-      opacity: 1;
-  }
-}
-
-.footer .fa-instagram {
-  color: #c1558b;
-}
-
-.footer .fa-envelope {
-  color: #ffffff;
-}
-
-.footer .fa-linkedin-square {
-  color: #0077B5;
-}
-
-.footer .fa-github {
-  color: #ffffff;
-}
-
-.footer .fa-twitter {
-  color: #1da1f2;
-}
+.footer .fa-instagram { color: #c1558b; }
+.footer .fa-envelope { color: #ffffff; }
+.footer .fa-linkedin-square { color: #0077B5; }
+.footer .fa-github { color: #ffffff; }
+.footer .fa-twitter { color: #1da1f2; }
 
   /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {

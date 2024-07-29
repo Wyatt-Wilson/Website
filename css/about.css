@@ -28,14 +28,6 @@ body, html {
   border-radius: 50px;
 }
 
-/* Style the logo link */
-.header a.logo {
-  padding: 6px;
-  line-height: 5px;
-  font-size: 5px;
-  font-weight: bold;
-}
-
 /* Change the background color on mouse-over */
 .header a:hover {
   background-color: #ddd;
@@ -69,7 +61,8 @@ section {
 }
 
 img.rounded-img {
-  padding-top: 10px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   border-radius: 50%;
   align-content: center;
 }
@@ -86,11 +79,17 @@ img.rounded-img {
 }
 
 .img3 {
-  background: url(../img/Rooney_Field_New_turf_71.jpg);
-  min-height: 100%;
+  background: url(../img/Rooney_Field_New_turf_71.jpg) no-repeat center center;
+  background-size: cover; /* Scale the image to cover the entire container */
+  background-position: center; /* Center the image in the container */
+  width: 100vw; /* Full viewport width */
+  height: 95vh; /* Full viewport height */
+  position: relative; /* Allows positioning of child elements */
+  overflow: hidden;
+  text-align: center;
 }
 
-.img1, .img2, .img3 {
+.img1, .img2 {
   position: relative;
   opacity: .85;
   background-position: center;
@@ -108,41 +107,84 @@ img.rounded-img {
   width: 35%;
 }
 
-.heading {
+.heading, .heading-fade {
   position: absolute;
   top: 50%;
   font-size: 400%;
   text-shadow: 0 0 15px #000;
   width: 100%;
   text-transform: uppercase;
-  animation: fadeInAnimation ease 1s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+}
+.heading-fade{
+  display: none;
 }
 
-/* Fade-in animation */
-@keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.text-scroll {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-.alignCenterInlineBorder {
-  color: #000;
-  display: block;
-  margin: 10px;
-  float: center;
+.fade-in {
+  opacity: 1;
+}
+
+.list-container {
   background: #f3f3f3;
+  padding: 20px;
+  margin: 10px auto;
+  color: #000;
   text-align: center;
 }
 
-/* Centering unordered list */
-ol {
-  display: table;
-  margin: 0 auto;
+/*below is creating numbered list of places I've lived in */
+.list-columns {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.list-column1 {
+  flex: 1; /* Make the column the same width as the other column */
+  display: flex;
+  justify-content: flex-end; /* Align the list to the right */
+}
+
+.list-column2 {
+  flex: 1;
+}
+
+.list-column1 ol {
+  list-style: none; /* Remove default list styling */
+  padding-left: 0; /* Remove padding */
+  margin: 0; /* Remove default margin */
+  text-align: right; /* Align text to the right */
+}
+
+.list-column1 li,
+.list-column2 li {
+  margin-bottom: 5px; /* Space between list items */
+  position: relative; /* For proper alignment of counters */
+  padding-left: var(--number-width, 3em); /* Space for numbering */
+  text-align: left;
+}
+
+.list-column1 li::before,
+.list-column2 li::before {
+  content: counter(list-item) ".\00a0"; /* add space after number */
+  font-weight: bold;
+  position: absolute;
+  left: 0; /* Align number to the left of the text */
+  width: var(--number-width, 3em); /* Dynamic width for numbers */
+  text-align: right;
+}
+
+.list-column2 ol {
+  list-style: none; /* Remove default list styling */
+  padding-left: 0; /* Adjust space from the left */
+  margin: 0; /* Remove default margin */
+  counter-reset: list-item 5;
 }
 
 /* insert footer below*/
@@ -193,50 +235,26 @@ ol {
   margin-bottom: 8px;
 }
 
-.fade {
-  animation: fadeInAnimation ease 3s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
 .link {
   text-decoration: none;
   color: rgb(128, 128, 128);
   overflow-wrap: break-word;
   text-align: center;
   font-size: 1.00em;
+  
 }
 
-@keyframes fadeInAnimation {
-  0% {
+.footer .fa-instagram { color: #c1558b; }
+.footer .fa-envelope { color: #ffffff; }
+.footer .fa-linkedin-square { color: #0077B5; }
+.footer .fa-github { color: #ffffff; }
+.footer .fa-twitter { color: #1da1f2; }
+
+@keyframes explode {
+  to {
+    transform: translate(0, -50px) scale(1.5);
     opacity: 0;
   }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.footer .fa-instagram {
-  color: #c1558b;
-}
-
-.footer .fa-envelope {
-  color: #ffffff;
-}
-
-.footer .fa-linkedin-square {
-  color: #0077B5;
-}
-
-.footer .fa-github {
-  color: #ffffff;
-}
-
-.footer .fa-twitter {
-  color: #1da1f2;
 }
 
 /* Media queries for responsiveness */
