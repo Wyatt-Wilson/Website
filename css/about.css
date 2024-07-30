@@ -70,27 +70,14 @@ img.rounded-img {
 /* Images with background */
 .img1 {
   background: url(../img/qc-winter.jpg);
-  min-height: 60%;
 }
-
 .img2 {
   background: url(../img/pittsburgh-sunrise.jpg);
-  min-height: 60%;
 }
-
-.img3 {
-  background: url(../img/Rooney_Field_New_turf_71.jpg) no-repeat center center;
-  background-size: cover; /* Scale the image to cover the entire container */
-  background-position: center; /* Center the image in the container */
-  width: 100vw; /* Full viewport width */
-  height: 95vh; /* Full viewport height */
-  position: relative; /* Allows positioning of child elements */
-  overflow: hidden;
-  text-align: center;
-}
-
 .img1, .img2 {
   position: relative;
+  width: auto;
+  height: 60vh;
   opacity: .85;
   background-position: center;
   background-size: cover;
@@ -98,6 +85,17 @@ img.rounded-img {
   background-repeat: no-repeat;
   text-align: center;
 }
+.img3 {
+  background: url(../img/Rooney_Field_New_turf_71.jpg);
+  width: auto;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
 
 /* Centering image */
 .center {
@@ -156,35 +154,37 @@ img.rounded-img {
 }
 
 .list-column1 ol {
-  list-style: none; /* Remove default list styling */
-  padding-left: 0; /* Remove padding */
-  margin: 0; /* Remove default margin */
-  text-align: right; /* Align text to the right */
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  text-align: right;
+  counter-reset: list-item; /* counter starts at 1*/
+}
+
+.list-column2 ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  counter-reset: list-item 5; /* counter starts at 6*/
 }
 
 .list-column1 li,
 .list-column2 li {
-  margin-bottom: 5px; /* Space between list items */
-  position: relative; /* For proper alignment of counters */
-  padding-left: var(--number-width, 3em); /* Space for numbering */
+  margin-bottom: 5px;
+  position: relative;
+  padding-left: var(--number-width, 3em);
   text-align: left;
+  counter-increment: list-item;
 }
 
 .list-column1 li::before,
 .list-column2 li::before {
-  content: counter(list-item) ".\00a0"; /* add space after number */
+  content: counter(list-item) ".\00a0"; /* add a space after number */
   font-weight: bold;
   position: absolute;
   left: 0; /* Align number to the left of the text */
-  width: var(--number-width, 3em); /* Dynamic width for numbers */
+  width: var(--number-width, 3em);
   text-align: right;
-}
-
-.list-column2 ol {
-  list-style: none; /* Remove default list styling */
-  padding-left: 0; /* Adjust space from the left */
-  margin: 0; /* Remove default margin */
-  counter-reset: list-item 5;
 }
 
 /* insert footer below*/
