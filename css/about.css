@@ -70,26 +70,26 @@ img.rounded-img {
 /* Images with background */
 .img1 {
   background: url(../img/qc-winter.jpg);
+  background-position: center 25%;
+  height: 60vh;
+  opacity: .85;
 }
 .img2 {
   background: url(../img/pittsburgh-sunrise.jpg);
-}
-.img1, .img2 {
-  position: relative;
-  width: auto;
+  background-position: center 65%;
   height: 60vh;
   opacity: .85;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  text-align: center;
 }
 .img3 {
   background: url(../img/Rooney_Field_New_turf_71.jpg);
-  width: auto;
-  height: 100vh;
   background-position: center;
+  height: 100vh;
+}
+.img1, .img2, .img3 {
+  width: auto;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -158,7 +158,7 @@ img.rounded-img {
   padding-left: 0;
   margin: 0;
   text-align: right;
-  counter-reset: list-item; /* counter starts at 1*/
+  counter-reset: list-item 0; /* counter starts at 1*/
 }
 
 .list-column2 ol {
@@ -259,6 +259,10 @@ img.rounded-img {
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
+  .img1, .img2 {
+    background-position: center;
+  }
+  
   .heading {
     font-size: 300%; /* Further reduce font size for very small screens */
   }
