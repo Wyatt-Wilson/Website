@@ -87,9 +87,6 @@ img.rounded-img {
 }
 .img1, .img2, .img3 {
   width: auto;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -108,10 +105,13 @@ img.rounded-img {
 .heading, .heading-fade {
   position: absolute;
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 400%;
   text-shadow: 0 0 15px #000;
   width: 100%;
   text-transform: uppercase;
+  text-align: center;
 }
 .heading-fade{
   display: none;
@@ -259,7 +259,15 @@ img.rounded-img {
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
-  .img1, .img2 {
+  .list-column1 ol {
+    counter-reset: list-item 1; /* counter starts at 1 - making up for mobile devices*/
+  }
+  
+  .list-column2 ol {
+    counter-reset: list-item 6; /* counter starts at 6*/
+  }
+
+   .img1, .img2 {
     background-position: center;
   }
   
@@ -289,7 +297,6 @@ img.rounded-img {
     background-size: cover;
     background-position: center;
   }
-
 }
 
 @media screen and (max-width: 375px) {
