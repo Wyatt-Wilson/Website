@@ -9,7 +9,7 @@ body, html {
   height: 100%;
   font-family: "Open Sans", sans-serif;
   color: white;
-  background-color: gainsboro;
+  background-color: #323232;
 }
 
 .mainBlock {
@@ -95,88 +95,169 @@ body, html {
   float: right;
 }
 
-/* the below contents are credited to "garnatti one" on YouTube - https://www.youtube.com/watch?v=JHki4io-RHs*/
-.toc-wrapper {
-  background:#ffffff;
-  box-shadow: 0 3px 30px rgba(0 0 0 / .24);
-  max-width: 600px;
-  margin: auto;
-  border-radius: 50px;
-  margin-top: 10%;
-  margin-bottom: 15%;
+
+.h1, .h2{
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 600;
+}
+.p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
 }
 
-.toc-header {
-  background: #181d3b;
-  padding: 30px;
-  border-radius: 50px 50px 0 100px;
-  min-height: 100px;
+.playlists {
+  width: 100%;
+  padding: 0 90px; /* space on the sides */
+  box-sizing: border-box;
+  margin: 0 auto; /* centers section */
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  color: #ffffff;
+}
+
+.main-text {
+  background-color: #333;
+  width: 100%;
+}
+
+.main-text h1 {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.main-text h2 {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #bcbcbc;
+  margin-bottom: 2rem;
+}
+
+/* Add padding below the last row */
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* changes the number of items per row */
+  gap: 5rem;
+  justify-content: center;
+  align-items: start;
+  overflow: hidden;
+}
+
+.playlist-item {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 1rem; /* space for inside the box */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* space between image and subtext */
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+/* Making images = cropped to a perfect square */
+.playlist-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1; /* makes image square */
+  object-fit: cover; /* Makes image cropped if doesn't fit the square */
+  border-radius: 8px; /* rounded corners */
+  margin-bottom: 10px; /* space between image and subtext | try using px if rem isnt good*/
+}
+
+.subtext {
+  font-size: 1.2rem;
+  color: #000000;
+  margin: 0;
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  min-height: 2rem;
+}
+
+.playlist-description {
+  font-size: 1rem;
+  color: #555555;
+  background-color: #f0f0f0; /* gray box inside white box */
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 10px;
+}
+
+.playlist-item .playlist-description {
+  flex-grow: 1; /* allows descriptions to fill available space */
   display: flex;
   align-items: center;
-}
-
-.toc-heading {
-  font-size: 30px;
-  color: #ffffff;
-  margin: 0;
+  justify-content: center;
   text-align: center;
-  width: 100%;
-  font-weight: 600;
+  padding: 0.5rem;
 }
 
-.toc-list-wrapper {
-  background: #181d3b;
-  border-radius: 50px 0 52px 52px;
+
+/* fixes subtext from being pushed down */
+.playlist-item .playlist-description p {
+  margin: 0; /* Prevents excess spacing */
+  line-height: 1.4;
 }
 
-.toc-list{
-  border-radius: 0 100px 50px 50px; /* makes bottom rounded*/
-  background: #ffffff;
-  margin: 0;
-  list-style: none;
-  padding: 30px 50px;
+.playlist-item:hover {
+  animation: grayFade 10s infinite; /* Attach the animation */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s; /* Keep the smooth lift effect */
 }
 
-.toc-list-item:not(:last-child) {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #e8e8e8;
+.playlist-item:hover .playlist-description {
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.toc-list-item a {
-  position: relative;
-  color: #4c4c4c;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.25em;
-  display: block;
-  padding: 10px 10px 10px 50px;
-  border-radius: 10px; /* does nothing */
-  transition: .2s ease;
+/* Keyframes for the rainbow animation */
+@keyframes grayFade {
+  0% { background-color: #d7d7d7; }
+  33% { background-color: #bfbfbf; }
+  66% { background-color: #bfbfbf; }
+  100% { background-color: #d7d7d7; }
 }
 
-.toc-list-item a:before {
-  content: '';
-  width: 25px;
-  height: 25px;
-  background-color: lightsteelblue;
-  position: absolute;
-  border-radius: 50%;
-  left: 10px;
-  top: 0;
-  bottom: 0;
-  margin: auto;
+/* Ensure grid is centered */
+.main-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 2rem; /* adds extra space at very end */
+  background-size: cover; /* Ensure the image covers the whole background */
+  background-position: center center; /* Center the image */
+  background-attachment: fixed; /* Keep it fixed while scrolling */
 }
 
-.toc-list-item:hover {
-  box-shadow: 0 8px 15px #6d829b;
-  background: #99afc8;
-  color: #ffffff;
-  border-radius: 12.5px;
+.main-images{
+  background-image: url('../img/banksyDJMonkey.jpg');
 }
 
-.toc-list-item a:hover:before {
-  background: #ffffff;
+.main-images2 {
+  background-image: url('../img/jimboPhillips.jpg');
 }
+
+
 
 /* insert footer below*/
 .footer-container {

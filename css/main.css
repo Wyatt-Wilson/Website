@@ -78,10 +78,9 @@ color: white;
 } 
 
 /*BELOW WAS TAKEN FROM W3SCHOOLS (https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_responsive_header)*/
-/* Style the header with a gray background and some padding */
 .header {
   overflow: hidden;
-  background-color: #637992;
+  background-color: #729FCF;
   padding: 5px 10px;
 }
 
