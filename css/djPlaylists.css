@@ -208,7 +208,6 @@ body, html {
   padding: 0.5rem;
 }
 
-
 /* fixes subtext from being pushed down */
 .playlist-item .playlist-description p {
   margin: 0; /* Prevents excess spacing */
@@ -229,7 +228,6 @@ body, html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Keyframes for the rainbow animation */
 @keyframes grayFade {
   0% { background-color: #d7d7d7; }
   33% { background-color: #bfbfbf; }
@@ -237,23 +235,22 @@ body, html {
   100% { background-color: #d7d7d7; }
 }
 
-/* Ensure grid is centered */
-.main-images {
+.main-image {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-bottom: 2rem; /* adds extra space at very end */
-  background-size: cover; /* Ensure the image covers the whole background */
-  background-position: center center; /* Center the image */
-  background-attachment: fixed; /* Keep it fixed while scrolling */
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* fixed pos. while scrolling */
 }
 
-.main-images{
+.main-image{
   background-image: url('../img/banksyDJMonkey.jpg');
 }
 
-.main-images2 {
+.main-image2 {
   background-image: url('../img/jimboPhillips.jpg');
 }
 
@@ -348,6 +345,11 @@ body, html {
   .playlist-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 items per row */
     gap: 2rem;
+  }
+
+  .main-image, .main-image2{
+    background-size: cover;
+    background-position: center;
   }
 }
 
