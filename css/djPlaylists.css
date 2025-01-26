@@ -346,10 +346,11 @@ body, html {
     grid-template-columns: repeat(2, 1fr); /* 2 items per row */
     gap: 2rem;
   }
-
-  .main-image, .main-image2{
-    background-size: cover;
-    background-position: center;
+ /* prevents image from being incorrectly scaled*/
+  .main-image {
+    background-size: contain;
+    background-position: top center;
+    background-attachment: scroll;
   }
 }
 

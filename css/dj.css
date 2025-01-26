@@ -139,7 +139,7 @@ body, html {
 
 .toc-list-item:not(:last-child) {
   margin-bottom: 15px;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px;
 }
 
 .toc-list-item a {
