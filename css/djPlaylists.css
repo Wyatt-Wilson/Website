@@ -348,9 +348,14 @@ body, html {
   }
  /* prevents image from being incorrectly scaled*/
   .main-image {
+    background-image: url('../img/haring.jpg');
     background-size: contain;
     background-position: top center;
     background-attachment: scroll;
+  }
+
+  .main-image2 {
+    background-image: url('../img/trippy.jpg');
   }
 }
 
