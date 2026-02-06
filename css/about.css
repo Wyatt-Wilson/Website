@@ -1,317 +1,679 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body, html {
-  height: 100%;
-  font-family: "Open Sans", sans-serif;
-  color: white;
+html, body {
+  font-family: 'Poppins', sans-serif;
   background-color: #323232;
-}
-
-/* Style the header with a gray background and some padding */
-.header {
-  overflow: hidden;
-  background-color: #729FCF;
-  padding: 5px 10px;
-}
-
-/* Style the header links */
-.header a {
-  float: left;
   color: white;
-  text-align: center;
-  padding: 12px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 30px;
+  background-color: rgba(50, 50, 50, 0.8); /* Gray with some transparency */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional shadow for more depth */
+}
+
+
+#logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.header-right {
+  display: flex;
+  gap: 16px;
+}
+
+.header a {
+  position: relative;
+  display: inline-block;
+  color: white;
   text-decoration: none;
   font-size: 18px;
-  border-radius: 50px;
+  padding: 14px 22px;
+  border-radius: 30px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
 }
 
-/* Change the background color on mouse-over */
+.header a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, #ffffff44, #ffffff11, #ffffff44);
+  transition: all 0.4s ease-in-out;
+  z-index: 0;
+  border-radius: 30px;
+}
+
+.header a:hover::before {
+  left: 0;
+}
+
 .header a:hover {
-  background-color: #ddd;
-  color: black;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
 }
 
-/* Style the active/current link */
 .header a.active {
-  color: black;
+  color: ivory;
+  font-weight: bolder;
+  text-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.8),  /* Soft black shadow for depth */
+    0 0 20px rgba(0, 0, 0, 0.6);  /* Stronger shadow for bold effect */
 }
 
-/* Float the link section to the right */
-.header-right {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 30px;
-  float: right;
+/* MAIN SECTION */
+main {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  width: 100vw;
+  max-width: 100vw;
 }
 
-.heading1 {
-  font-size: 2em; /* Increased font size */
-}
 
-.p {
-  font-size: 1.25em; /* Increased font size */
-}
 
-/* Sections */
-section {
-  padding: 50px 10%; /* Increased section width */
-}
 
-img.rounded-img {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  border-radius: 50%;
-  align-content: center;
-}
 
-/* Images with background */
-.img1 {
-  background: url(../img/qc-winter.jpg);
-  background-position: center 25%;
-  height: 60vh;
-  opacity: .85;
-}
-.img2 {
-  background: url(../img/pittsburgh-sunrise.jpg);
-  background-position: center 65%;
-  height: 60vh;
-  opacity: .85;
-}
-.img3 {
-  background: url(../img/Rooney_Field_New_turf_71.jpg);
-  background-position: center;
-  height: 100vh;
-}
-.img1, .img2, .img3 {
-  width: auto;
-  background-size: cover;
+
+
+
+
+
+
+
+
+
+/* Sections Below */
+/* First Section Below */
+.first-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  padding: 60px 20px 20px;
+  background: linear-gradient(135deg, #578285 30%, #d6d6d6 100%); /* Soft gradient */
   position: relative;
   overflow: hidden;
-  text-align: center;
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.2); /* Inner glowing effect */
+}
+
+.photo-frame {
+  width: 800px;
+  height: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  transition: transform 1s ease-out; /* Slow transition for smooth shrinking */
+}
+
+.first-half {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.photo-frame img.first-half {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.photo-frame img {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-out;
 }
 
 
-/* Centering image */
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 35%;
+.photo-frame.slide-left {
+  transform: translateX(-20vw); /* Smoothly move the photo frame to the left */
 }
 
-.heading, .heading-fade {
+.photo-frame.shrink {
+  transform: scale(0.5); /* Shrink image */
+  transition: transform 1s ease-out;
+}
+
+.photo-frame.grow {
+  transform: scale(1); /* Full size image */
+}
+
+.about-intro {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 400%;
-  text-shadow: 0 0 15px #000;
-  width: 100%;
-  text-transform: uppercase;
-  text-align: center;
-}
-.heading-fade{
-  display: none;
-}
-
-.text-scroll {
+  left: 55vw;
+  transform: translateY(-50%);
+  text-align: left;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease 0.5s;
+  z-index: 1;
+  max-width: 40vw;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 2rem;
 }
 
-.fade-in {
+
+
+/* Second Section */
+.second-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  background-image: url('../img/stageAE.jpg'); /* Stage image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center content */
+}
+
+.stage-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stage-image-text {
+  position: absolute;
+  left: 10%; /* Adjust as needed to shift text to the left */
+  z-index: 2; /* Ensure text stays above the map */
+  max-width: 40%; /* Limit text width */
+}
+
+.stage-image-text h2 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.stage-image-text p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.stage-image-background {
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/stageAE.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Keep behind other content */
+}
+
+.pittsburgh-map-section {
+  display: flex;
+  justify-content: flex-end; /* Align the content to the right */
+  margin-top: 30px; /* Space between sections */
+  width: 100%;
+}
+
+.map-container {
+  width: 50%; /* Adjust the width of the map */
+  max-width: 600px; /* Set a max width for the map */
+  margin: 0 10% 0 0; /* Center the map and add some margin */
+  border-radius: 8px; /* Optional: rounded corners */
+  overflow: hidden; /* Keep map inside container */
+  position: relative; /* Ensure it's above any other layers */
+  z-index: 2; /* Ensure map is above any background layers */
+}
+
+iframe {
+  width: 100%; /* Ensure the iframe takes up the full width of its container */
+  height: 450px; /* Set the height of the map */
+  border-radius: 8px; /* Rounded corners for the iframe */
+  pointer-events: auto; /* Enable map interaction */
+}
+
+
+/* Third Section */
+.third-section {
+  background: linear-gradient(to bottom, #F1CDA9 20%, #ffffff 100%);
+  padding: 750px 0 500px 0; /* space above and below this section */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the section fills the full viewport height */
+  width: 100%;
+  overflow: hidden;
+}
+
+.third-section-container {
+  position: relative; /* Only once is needed */
+  width: 80%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.third-section-image {
+  width: 100%;
+  height: 100%; /* Ensure it stretches to fit the section's height */
+  object-fit: cover; /* Ensures the image covers the entire area */
+  object-position: center; /* Center the image */
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: translateX(-10%);
+}
+
+.third-section-text-overlay {
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  background-color: white;
+  color: #292418;
+  padding: 40px;
+  max-width: 50%;
+  z-index: 2;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateX(10%) translateY(10%);
+}
+
+.third-section-text-overlay h2 {
+  font-size: 2.0rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.third-section-text-overlay p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.third-section-text-overlay a {
+  color: #FF6F61; /* Soft coral color for the link */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.third-section-text-overlay a:hover {
+  text-decoration: underline; /* Underline link on hover */
+}
+
+
+
+
+
+
+
+/* Fourth Section */
+.fourth-section {
+  background-color: #fff;
+  padding: 350px 0 350px 0;
+  text-align: center;
+  color: #333;
+}
+
+.fourth-section-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px; /* Adjust as needed to create space between text and image */
+}
+
+
+.fourth-section-text h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #292418; /* Nice contrast color for the title */
+  text-align: center; /* Center the text horizontally */
+  margin: 0; /* Remove default margin */
+  padding-bottom: 20px; /* Space between text and the image */
+}
+
+.poster-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.poster-image {
+  max-width: auto; /* Ensure it doesn't exceed the container */
+  height: 80vh;
+  object-fit: contain;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional: adds shadow to the image */
+  transition: transform 0.3s ease;
+}
+
+.poster-image:hover {
+  transform: scale(1.10); /* Slight zoom effect on hover */
+}
+
+
+
+
+/* Fifth Section */
+.fifth-section {
+  background: linear-gradient(to bottom, #ffffff 20%, #203636 100%);
+  padding: 100px 0 500px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+  overflow: hidden; /* Hide scrollbar */
+}
+
+.fifth-section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.text-center {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.text-center h2 {
+  font-size: 2.5rem;
+  color: #292418;
+  margin-bottom: 10px;
+}
+
+.text-center p {
+  font-size: 1.2rem;
+  color: #292418;
+  max-width: 80%;
+}
+
+/* Gallery Container */
+.places-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  height: 500px; /* Fixed height for the gallery */
+  overflow: hidden; /* Hide the scrollbar */
+  cursor: grab; /* Cursor to indicate dragability */
+  transition: transform 0.3s ease; /* Smooth scrolling transition */
+}
+
+.place-item {
+  width: 500px;  /* Fixed width for each image */
+  height: 500px; /* Fixed height for each image */
+  position: relative;
+  margin-right: 20px; /* Space between images */
+  flex-shrink: 0; /* Prevent the image from shrinking */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.place-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the area without stretching */
+  border-radius: 12px;
+}
+
+.place-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.place-item:hover .place-caption {
   opacity: 1;
 }
 
-.list-container {
-  background: #f3f3f3;
+/* When dragging */
+.places-gallery.dragging {
+  cursor: grabbing; /* Change cursor when dragging */
+}
+
+
+
+
+
+
+
+
+
+/* Sixth Section */
+.sixth-section {
+  position: relative;
+  width: 100%;
+  height: 90vh; 
+  background-image: url('../img/AB_Drone_240908_TurnItUp-2.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sixth-section-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sixth-section-text {
+  text-align: center;
+  color: white;
   padding: 20px;
-  margin: 10px auto;
-  color: #000;
+  max-width: 80%;
+}
+
+.sixth-section-text h2 {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.sixth-section-text h3 {
+  font-size: 2rem;
+  font-weight: lighter;
+}
+
+.sixth-section-text p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.credit-text {
+  position: absolute; /* Position relative to the sixth-section container */
+  bottom: 10px; /* Distance from the bottom */
+  right: 10px; /* Distance from the right */
+  font-size: 1.0rem; /* Smaller text */
+  padding-right: 20px;
+  color: #ffffff; /* Dark gray color for the credit */
+  opacity: 0.7; /* Slight transparency to give it a subtle look */
+  font-weight: normal;
+}
+
+
+
+/* General Designs Below */
+.show-text {
+  opacity: 1;
+  transition: opacity 1s ease 0.5s;
+}
+
+.text-center {
+  flex: 1;
+  padding: 0 20px;
   text-align: center;
 }
 
-/*below is creating numbered list of places I've lived in */
-.list-columns {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: left;
-  margin-top: 20px;
+.text-center h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #292418; /* Darker color for contrast */
 }
 
-.list-column1 {
-  flex: 1; /* Make the column the same width as the other column */
-  display: flex;
-  justify-content: flex-end; /* Align the list to the right */
+.text-center p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #524839; /* Darker text for readability */
 }
 
-.list-column2 {
-  flex: 1;
-}
 
-.list-column1 ol {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  text-align: right;
-  counter-reset: list-item 0; /* counter starts at 1*/
-}
 
-.list-column2 ol {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  counter-reset: list-item 5; /* counter starts at 6*/
-}
 
-.list-column1 li,
-.list-column2 li {
-  margin-bottom: 5px;
-  position: relative;
-  padding-left: var(--number-width, 3em);
-  text-align: left;
-  counter-increment: list-item;
-}
 
-.list-column1 li::before,
-.list-column2 li::before {
-  content: counter(list-item) ".\00a0"; /* add a space after number */
-  font-weight: bold;
-  position: absolute;
-  left: 0; /* Align number to the left of the text */
-  width: var(--number-width, 3em);
-  text-align: right;
-}
 
-/* insert footer below*/
-.footer-container {
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+footer {
   background-color: black;
-  padding: 64px 0 64px 0;
-}
-
-.footer {
-  width: 80%;
-  height: auto;
-  background-color: black;
-  color: white;
+  padding: 40px 20px 20px;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  margin: 0 auto;
-  font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
+  gap: 60px;
+  text-align: center;
+  position: relative;
+  width: 100%;
 }
 
-.footer a:hover {
+.footer-column {
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-column h2 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.footer-column h2::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 90%;
+  margin: 6px auto 0 auto;
+}
+
+.footer-column .footer-link {
+  color: white;
+  text-decoration: none;
+  margin: 6px 0;
+  text-align: center;
+  width: 100%;
+  max-width: 180px;
+  transition: all 0.3s ease;
+}
+
+.footer-column .footer-link:hover {
   background-color: #ddd;
   color: black;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
+  border-radius: 10px;
+  padding-left: 4px;
 }
 
-.footer-heading-first, .footer-heading-second {
-  display: flex;
-  flex-direction: column;
-  margin-right: 64px;
-  line-height: 180%; /* makes the tags essentially double spaced*/
+/* Footer icons */
+.footer-link .fa-instagram { color: #c1558b; }
+.footer-link .fa-envelope { color: #ffffff; }
+.footer-link .fa-linkedin-square { color: #0077B5; }
+.footer-link .fa-github { color: #ffffff; }
+
+.footer-link i {
+  margin-left: 6px;
+  transition: color 0.3s;
 }
 
-.footer-heading-third {
-  display: flex;
-  flex-direction: column;
-  line-height: 180%;
-}
-
-.footer-heading-first h2, .footer-heading-second h2, .footer-heading-third h2 {
-  margin-bottom: 32px;
-}
-
-.footer-heading-first a, .footer-heading-second a, .footer-heading-third a {
-  color: white;
-  text-decoration: none;
-  margin-bottom: 8px;
-}
-
-.link {
-  text-decoration: none;
-  color: rgb(128, 128, 128);
-  overflow-wrap: break-word;
+.footer-note {
   text-align: center;
-  font-size: 1.00em;
-  
+  width: 100%;
+  margin-top: 40px;
+  color: gray;
+  font-size: 0.9rem;
 }
 
-.footer .fa-instagram { color: #c1558b; }
-.footer .fa-envelope { color: #ffffff; }
-.footer .fa-linkedin-square { color: #0077B5; }
-.footer .fa-github { color: #ffffff; }
-.footer .fa-twitter { color: #1da1f2; }
-
-@keyframes explode {
-  to {
-    transform: translate(0, -50px) scale(1.5);
-    opacity: 0;
-  }
-}
-
-/* Media queries for responsiveness */
+/* RESPONSIVE */
 @media screen and (max-width: 768px) {
-  .list-column1 ol {
-    counter-reset: list-item 1; /* counter starts at 1 - making up for mobile devices*/
-  }
-  
-  .list-column2 ol {
-    counter-reset: list-item 6; /* counter starts at 6*/
+
+  .photo-frame {
+    width: 90vw;
+    height: 50vh;
   }
 
-   .img1, .img2 {
-    background-position: center;
-  }
-  
-  .heading {
-    font-size: 300%; /* Further reduce font size for very small screens */
+  .full-image-section img {
+    max-height: 50vh;
   }
 
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
+  .about-intro {
+    margin: 20px auto 0;
+    padding-left: 0;
   }
 
-  .header-right {
-    float: none;
-  }
-
-  .footer-heading-first, .footer-heading-second {
-    margin-right: 20px;
-  }
-
-  .center {
-    width: 80%;
-  }
-  
-  .img1, .img2, .img3 {
-    background-size: cover;
-    background-position: center;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .footer-heading-second {
-    margin-left: 10px; /* adds space to the left to make footer look somewhat normal when viewed on mobile device*/
-    margin-right: 0px;
-  }
-  
-}
-
-@media screen and (max-width: 320px) {
-  .footer-heading-first {
-    margin-right: 10px;
-  }
-  .footer-heading-second {
-    margin-right: 0px;
-  }
 }
