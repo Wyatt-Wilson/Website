@@ -1,10 +1,3 @@
-@font-face {
-  font-family: 'SuperMario64';
-  src: url('../fonts/SuperMario256.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +16,9 @@ body.no-scroll {
   overflow: hidden;
 }
 
-/* HEADER */
+/* ==================
+      Header
+================== */
 .header {
   position: fixed;
   top: 0;
@@ -37,9 +32,8 @@ body.no-scroll {
   align-items: center;
   justify-content: space-between;
   padding: 16px 30px; /* Adjusted vertical space */
+  background-color: rgba(0, 0, 0, 0.1);
 }
-
-
 
 #logo {
   display: flex;
@@ -96,18 +90,29 @@ body.no-scroll {
   color: #ff004c;
 }
 
+/* ==================
+      First/only Section
+      originally went with red LED vibe... chose grayscale
+================== */
+
 .name {
-  font-size: 6rem;
+  font-size: clamp(3.5rem, 8vw, 6rem);
   font-weight: 600;
-  color: transparent;
-  text-shadow: 0 0 1px black;
-  animation: neonFill 3s forwards, neonFlicker 2s 3s infinite;
+  background: linear-gradient(90deg, #ffffff 70%, #ff004c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 2px #ff004c,
+    0 0 6px #ff004c,
+    0 0 12px #ff004c,
+    0 0 24px #ff004c;
+  animation: neonFill 0.5s forwards, neonFlicker 2s 3s infinite;
 }
 
 @keyframes neonFill {
   0% {
     color: transparent;
-    text-shadow: 0 0 1px black;
+    text-shadow: 0 0 1px rgb(40, 40, 40);
   }
   100% {
     color: #ff004c;
@@ -128,35 +133,21 @@ body.no-scroll {
   90% { opacity: 0.9; }
 }
 
-/* Footer */
-footer {
-  background-color: black;
-  padding: 40px 20px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 60px;
-  text-align: center;
-  position: relative;  /* important */
-  width: 100%;
-}
-
 .enter-link-container {
   margin-top: 20px;
-  animation: fadeInLink 0.5s ease-in-out 0.75s forwards;
   opacity: 0;
+  animation: fadeInLink 0.5s ease-in-out 0.75s forwards;
 }
 
 .enter-link {
-  display: inline-block;
   padding: 10px 24px;
   font-size: 1.25rem;
   color: #ff004c;
   border: 2px solid #ff004c;
   border-radius: 30px;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
-  text-shadow: 0 0 8px #ff004c, 0 0 12px #ff004c;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 8px #ff004c;
 }
 
 .enter-link:hover {
@@ -176,122 +167,41 @@ footer {
   }
 }
 
-#gridSection {
-  display: none;
-  opacity: 0;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-  transition: opacity 1s ease-in-out;
-}
-
-/* HERO SECTION */
-.hero-image{
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/dj5.jpg");
-  height: 100vh;
+.hero-image {
+  min-height: 100vh;
+  filter: grayscale(100%) brightness(2.00) contrast(1.1);
+  background-image:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("../img/dj5.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding-top: 60px;
-  position: relative;
-}
 
-
-
-/* GRID SECTION */
-/* Grid container */
-.grid-section {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Grid items */
-.grid-item {
-  flex: 1;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  transition: transform 0.5s ease;
-  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: gray;
-}
-
-.grid-label {
-  font-family: 'SuperMario64', 'Poppins', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 5rem); /* responsive sizing */
-  font-weight: 600;
   text-align: center;
-  pointer-events: none; /* so the whole image is clickable */
-  text-shadow: 0 0 8px black;
-  color: gray;
 }
 
-.grid-item:hover {
-  transform: scale(1.03);
-  z-index: 2;
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.grid-item:hover .grid-label {
-  color: white;
+/* ==================
+      Footer
+================== */
+
+footer {
+  background-color: black;
+  padding: 40px 20px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  text-align: center;
 }
-
-/* Backgrounds */
-.grid-item.first { background-image: url('../img/dj6.png'); }
-.grid-item.second { background-image: url('../img/dj2.jpg'); }
-.grid-item.third { background-image: url('../img/dj7.jpg'); }
-
-
-/* Optional stardust using particle animation */
-.grid-item::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(white 1px, transparent 1px);
-  background-size: 10px 10px;
-  opacity: 0;
-  animation: stardust 2s linear infinite;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  border-radius: 0; /* Optional if you want sharp edges */
-}
-
-.grid-item:hover::after {
-  opacity: 0.25;
-}
-
-.fade-out {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-@keyframes stardust {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100px 100px;
-  }
-}
-
-
-
 
 .footer-column {
   min-width: 180px;
@@ -303,7 +213,6 @@ footer {
 .footer-column h2 {
   font-size: 1.25rem;
   margin-bottom: 10px;
-  padding-bottom: 10px;
   position: relative;
 }
 
@@ -317,17 +226,14 @@ footer {
 }
 
 /* Subtext links */
-.footer-column .footer-link {
+.footer-link {
   color: white;
   text-decoration: none;
   margin: 6px 0;
-  text-align:center;
-  width: 100%;
-  max-width: 180px;
   transition: all 0.3s ease;
 }
 
-.footer-column .footer-link:hover {
+.footer-link:hover {
   background-color: #ddd;
   color: black;
   border-radius: 10px;
@@ -357,7 +263,9 @@ footer {
 
 
 
-/* RESPONSIVE */
+/* ==================
+    Responsive Views
+================== */
 @media screen and (max-width: 768px) {
   #gridSection {
     flex-direction: column;

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Wyatt Wilson</title>
+  <!-- Styles -->
   <link rel="stylesheet" href="./css/about.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -13,22 +14,25 @@
   <!--Header-->
   <div class="header">
     <div id="logo">
-      <a href="index.html"><img src="./img/logo-transparent.png" alt="Wyatt Wilson Logo" class="logo" /></a>
-    </div>
-    <div class="header-right">
-      <a href="about.html" class="active">About Me</a>
+      <a href="index.html" class="home-icon">
+        <i class="fa fa-home"></i>
+      </a>
     </div>
   </div>
-  <script src="./js/aboutMe.js" defer></script>
   <main>
     <!--First Section-->
     <section class="first-section">
-      <div class="photo-frame">
-        <img src="./img/me4.jpg" class="first-half">
-      </div>
-      <div class="about-intro">
-        <h1>My Name's Wyatt Wilson</h1>
-        <p>This is the first website I made. As of now, it serves as an archive and sandbox for whatever project comes up. My new website can be found at <a href="https://wyattwilsonofficial.com">wyattwilsonofficial.com</a>.</p>
+      <div class="first-section-wrapper">
+        <div class="photo-frame">
+          <img src="./img/me1.jpg" alt="Wyatt Wilson">
+        </div>
+        <div class="about-intro">
+          <h1>I'm Wyatt Wilson</h1>
+          <p>
+            This is the first website I made. As of now, it serves as an archive and sandbox for whatever project comes up. 
+            My new website can be found at <a href="https://wyattwilsonofficial.com">wyattwilsonofficial.com</a>.
+          </p>
+        </div>
       </div>
     </section>
     <!--Second Section-->
@@ -37,9 +41,6 @@
         <div class="stage-image-text">
           <h2>What am I doing now?</h2>
           <p>Right now I work in multi-media, but I dedicate a lot of my time to the music scene. Stage AE is where I got started here in the Burgh.</p>
-        </div>
-        <div class="credit-text">
-          <p>Photo Credit: Red Bull Team</p>
         </div>
       </div>
       <div class="pittsburgh-map-section">
@@ -50,9 +51,11 @@
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
+        <div class="credit-text">
+          <p>Photo Credit: Red Bull Team</p>
+        </div>
       </div>
     </section>
-     
   </main>
   <!--Footer-->
   <footer>
@@ -72,5 +75,7 @@
     </div>
     <p class="footer-note">Website Created on June 13th, 2021</p>
   </footer>
+  <!-- Scripts -->
+  <script src="./js/aboutMe.js" defer></script>
 </body>
 </html>
