@@ -90,10 +90,10 @@ body.no-scroll {
   color: #ff004c;
 }
 
-/* ==================
+/* =========================================================
       First/only Section
       originally went with red LED vibe... chose grayscale
-================== */
+========================================================= */
 
 .name {
   font-size: clamp(3.5rem, 8vw, 6rem);
@@ -297,10 +297,6 @@ footer {
     flex-direction: column;
     gap: 10px;
     width: 100%;
-  }
-
-  .hero-image {
-    padding-top: 120px;
   }
 
   .name {

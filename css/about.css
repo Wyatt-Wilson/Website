@@ -143,13 +143,13 @@ html, body {
 .about-intro {
   position: absolute;
   top: 50%;
-  left: 55%;
+  left: 55vw;
+  max-width: 35vw;
   transform: translateY(-50%);
-  max-width: 600px;
   opacity: 0;
   transition: opacity 1s ease 0.5s;
   z-index: 2;
-  font-size: 1.6rem; /* bigger text */
+  font-size: 1.6rem;
   line-height: 1.5;
 }
 
@@ -157,90 +157,99 @@ html, body {
   opacity: 1;
 }
 
+.about-intro p {
+  font-size: clamp(1.25rem, 1.50vw, 1.50rem);
+}
+
 /* Make text links visible */
 .about-intro a {
-  
   text-decoration: underline;
 }
 
 
 /* ==================
-      Second Section
+   Second Section
 ================== */
+
 .second-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url('../img/stageAE.jpg');
   background-size: cover;
   background-position: center;
+  padding: 120px 8%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.stage-image-overlay {
+/* Dark overlay */
+.second-section::before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.50);
+  z-index: 0;
+}
+
+.content-wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 8%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px; /* gap between text and map */
+  width: 100%;
+  z-index: 1;
 }
 
-.stage-image-text {
-  z-index: 2;
+/* TEXT BLOCK */
+.text-block {
+  background: none;
+  padding: 60px;
+  border-radius: 12px;
   max-width: 40%;
-  color: white;
 }
 
-.second-section .stage-image-text h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem); /* scales from 2.5rem to 4rem depending on viewport */
-  font-weight: bold;
+.text-block h2 {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  margin-bottom: 20px;
 }
 
-.second-section .stage-image-text p {
-  font-size: clamp(0.5rem, 1.5vw, 1.5rem);
-  line-height: 1.4;
+.text-block p {
+  font-size: clamp(1.25rem, 1.50vw, 1.50rem);
+  line-height: 1.6;
 }
 
+/* MAP BLOCK */
+.map-block {
+  flex: 1.2;
+  min-width: none;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 40%;
+  margin-left: auto; /* pushes the map to the right */
+  align-items: center;
+  justify-content: center;
+}
+
+.map-block iframe {
+  width: 100%;
+  height: 750px;
+  border: 0;
+  display: block;
+}
+
+/* Credit */
 .credit-text {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-size: 1rem;
-  color: #ffffffaa;
+  bottom: 15px;
+  right: 20px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  z-index: 1;
 }
 
-/* Map container */
-.pittsburgh-map-section {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.map-container {
-  width: 50%;
-  max-width: 600px;
-  margin-right: 10%;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  z-index: 2;
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 450px;
-  border-radius: 8px;
-  pointer-events: auto;
-}
 
 
 
@@ -318,13 +327,61 @@ footer {
 
 
 
-/* ==================
+/* ===============================
     Responsive Views
-================== */
+=============================== */
+
+
+@media screen and (min-width: 1101px) and (max-width: 1800px) {
+  .text-block {
+    max-width: 45%;
+    padding: 60px 40px;
+  }
+
+  .map-block {
+    max-width: 50%;
+    height: 500px;
+  }
+
+  .content-wrapper {
+    gap: 60px;
+  }
+}
+
+
+
+
+@media (max-width: 1100px) {
+  .content-wrapper {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text-block {
+    width: 100%;
+    max-width: none;
+  }
+
+  .map-block {
+    width: 100%;
+    max-width: none;
+  }
+
+  .map-block iframe {
+    width: 100%;
+    height: 600px;
+  }
+}
+
+
+
+
 @media screen and (max-width: 768px) {
-  /* =======================
-     Start of first section 
-  ====================== */ 
+  /* ===========================================
+     Start of first section responsive section 
+  ========================================== */ 
   .first-section {
     height: auto;
     padding: 120px 20px 80px;
@@ -354,24 +411,41 @@ footer {
     top: auto;
     left: auto;
     transform: none;
-    opacity: 1; /* always visible on mobile */
+    max-width: 80%;
+    margin: 0 auto;
     text-align: center;
-    max-width: 100%;
+    
     font-size: 1.1rem;
   }
-  /* =======================
-     End of first section 
-  ====================== */ 
-  /* =======================
-     Start of second section 
-  ====================== */ 
+  /* ========================================================
+     End of first section responsive section 
+  ======================================================= */ 
+  /* ========================================================
+     Start of second section responsive section 
+  ======================================================= */ 
+
+  /* Remove full-section overlay on mobile */
+  .second-section::before {
+    background: none;
+  }
 
   .second-section {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     height: auto;
-    padding: 100px 20px 60px;
+    padding: 20px 8%; /* space on top/bottom */
+  }
+
+  /* Add background only behind text */
+  .text-block {
+    background: rgba(0, 0, 0, 0.50); /* small dark box */
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .map-block {
+    margin-bottom: 0;
   }
 
   .stage-image-overlay {
@@ -383,29 +457,15 @@ footer {
   }
 
   .stage-image-text {
-    max-width: 100%;
-    width: 100%;
+    max-width: 45%;
+    z-index: 2;
   }
 
   .pittsburgh-map-section {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 40px;
   }
-
-  .map-container {
-    width: 100%;
-    max-width: 100%;
-    margin-right: 0;
-  }
-
-  .map-container iframe {
-    width: 100%;
-    height: 300px;
-    margin-bottom: 60px;
-  }
-
 
   .second-section .stage-image-text h2 {
     font-size: 2rem;
@@ -414,9 +474,9 @@ footer {
   .second-section .stage-image-text p {
     font-size: 1rem;
   }
-  /* =======================
-     End of second section 
-  ====================== */ 
+  /* ========================================================
+     End of second section responsive section 
+  ======================================================= */ 
 
   .grid-item {
     width: 100%;
@@ -460,5 +520,17 @@ footer {
 
   .footer-column a {
     text-align: center;
+  }
+
+  .text-block h2 {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .text-block h2 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin-bottom: 20px;
   }
 }
